@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', sans-serif;
+    --font-syne: 'Syne', sans-serif;
+    --font-jetbrains: 'JetBrains Mono', monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0A0D14;
+    color: #F0F2F8;
+    font-family: var(--font-inter);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(124, 92, 255, 0.3);
+    color: #F0F2F8;
+  }
+
+  :focus-visible {
+    outline: 2px solid #7C5CFF;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0D14;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(124, 92, 255, 0.3);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(124, 92, 255, 0.5);
+  }
+}
+
+@layer components {
+  .gradient-text {
+    background: linear-gradient(135deg, #7C5CFF 0%, #2DD4BF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-warm {
+    background: linear-gradient(135deg, #9B81FF 0%, #F59E0B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: rgba(24, 30, 46, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .glow-border {
+    box-shadow: 0 0 0 1px rgba(124,92,255,0.3), 0 0 20px rgba(124,92,255,0.15);
+  }
+
+  .noise-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .section-fade-in {
+    animation: fadeIn 0.8s ease forwards;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Gauge animation */
+@keyframes gaugeFill {
+  from { stroke-dashoffset: 339; }
+  to { stroke-dashoffset: var(--gauge-target, 120); }
+}
+
+.gauge-arc {
+  animation: gaugeFill 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Fade in delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
