@@ -5,6 +5,16 @@ import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { CheckCircle, Calendar, Mail, Building, User } from "lucide-react";
 
+const ROLE_OPTIONS = [
+  "Managing Partner",
+  "Legal Operations Manager",
+  "Firm Administrator / COO",
+  "Partner",
+  "CFO / Director of Finance",
+  "IT / Systems",
+  "Other",
+];
+
 function InputField({
   label,
   id,
@@ -40,6 +50,42 @@ function InputField({
   );
 }
 
+function SelectField({
+  label,
+  id,
+  required,
+  value,
+  onChange,
+  options,
+}: {
+  label: string;
+  id: string;
+  required?: boolean;
+  value: string;
+  onChange: (v: string) => void;
+  options: string[];
+}) {
+  return (
+    <div>
+      <label htmlFor={id} className="block text-sm font-medium text-text-secondary mb-1.5">
+        {label} {required && <span className="text-danger">*</span>}
+      </label>
+      <select
+        id={id}
+        required={required}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="w-full px-4 py-3 rounded-xl bg-bg-elevated border border-border-default text-sm outline-none focus:border-primary/60 focus:ring-2 focus:ring-primary/20 transition-all appearance-none cursor-pointer text-text-primary"
+      >
+        <option value="" disabled className="text-text-muted">Select your role</option>
+        {options.map((opt) => (
+          <option key={opt} value={opt}>{opt}</option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
@@ -58,6 +104,7 @@ export default function ContactPage() {
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
       e.email = "Enter a valid email";
     if (!form.firm.trim()) e.firm = "Firm name is required";
+    if (!form.role) e.role = "Please select your role";
     return e;
   }
 
@@ -162,13 +209,19 @@ export default function ContactPage() {
                           <p className="text-xs text-danger mt-1">{errors.firm}</p>
                         )}
                       </div>
-                      <InputField
-                        label="Your role"
-                        id="role"
-                        placeholder="Managing Partner"
-                        value={form.role}
-                        onChange={set("role")}
-                      />
+                      <div>
+                        <SelectField
+                          label="Your role"
+                          id="role"
+                          required
+                          value={form.role}
+                          onChange={set("role")}
+                          options={ROLE_OPTIONS}
+                        />
+                        {errors.role && (
+                          <p className="text-xs text-danger mt-1">{errors.role}</p>
+                        )}
+                      </div>
                     </div>
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-text-secondary mb-1.5">
