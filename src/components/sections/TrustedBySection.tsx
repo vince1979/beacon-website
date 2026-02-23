@@ -16,7 +16,7 @@ export function TrustedBySection() {
     <section className="border-y border-border-subtle bg-bg-surface py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-center text-xs font-semibold text-text-muted uppercase tracking-widest mb-8">
-          Trusted by leading law firms managing
+          Trusted by law firms serving
         </p>
         <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
           {CLIENTS.map((client, i) => (
