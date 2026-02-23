@@ -40,19 +40,18 @@ export function HeroSection() {
             </div>
 
             <h1 className="font-display text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
-              <span className="text-text-primary">AI-powered</span>
+              <span className="text-text-primary">Your firm is</span>
               <br />
-              <span className="gradient-text">operations</span>
+              <span className="gradient-text">leaking revenue.</span>
               <br />
-              <span className="text-text-primary">for modern</span>
+              <span className="text-text-primary">Beacon</span>
               <br />
-              <span className="text-text-primary">law firms</span>
+              <span className="text-text-primary">stops it.</span>
             </h1>
 
             <p className="text-lg text-text-secondary leading-relaxed max-w-xl mb-8">
-              Beacon brings together portfolio health monitoring, proforma
-              review, client intelligence, and billing workflows — giving your
-              firm a single source of operational truth.
+              Write-down flags, client risk signals, and billing reviews —
+              all surfaced before they cost you.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
