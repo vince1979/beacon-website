@@ -11,66 +11,63 @@ const TIERS = [
     name: "Starter",
     monthly: 299,
     annual: 249,
-    description: "For smaller firms getting started with operational intelligence.",
+    description: "For boutique firms ready to stop guessing on billing. Up to 5 users.",
     badge: null,
     highlight: false,
     features: [
       { label: "Up to 5 users", included: true },
       { label: "Portfolio health dashboard", included: true },
-      { label: "Billing review (basic)", included: true },
-      { label: "Client intelligence checks", included: true },
-      { label: "25 intelligence checks / month", included: true },
+      { label: "Billing review", included: true },
+      { label: "25 client intelligence checks / month", included: true },
       { label: "Billstream integration", included: true },
       { label: "DOF approval workflows", included: false },
-      { label: "Custom threshold rules", included: false },
+      { label: "Custom write-down threshold rules", included: false },
       { label: "Advanced analytics", included: false },
       { label: "API access", included: false },
       { label: "Dedicated CSM", included: false },
       { label: "Custom integrations", included: false },
     ],
-    cta: "Start Free Trial",
+    cta: "Book a Demo",
     ctaHref: "/contact",
   },
   {
     name: "Growth",
     monthly: 899,
     annual: 749,
-    description: "For growing firms that need full billing intelligence and approval workflows.",
+    description: "For firms scaling past 10 attorneys that need full write-down visibility and approval workflows. Up to 25 users.",
     badge: "Most Popular",
     highlight: true,
     features: [
       { label: "Up to 25 users", included: true },
       { label: "Portfolio health dashboard", included: true },
-      { label: "Billing review (full)", included: true },
-      { label: "Client intelligence checks", included: true },
-      { label: "Unlimited intelligence checks", included: true },
+      { label: "Billing review", included: true },
+      { label: "Unlimited client intelligence checks", included: true },
       { label: "Billstream integration", included: true },
       { label: "DOF approval workflows", included: true },
-      { label: "Custom threshold rules", included: true },
+      { label: "Custom write-down threshold rules", included: true },
       { label: "Advanced analytics", included: true },
       { label: "API access", included: false },
       { label: "Dedicated CSM", included: false },
       { label: "Custom integrations", included: false },
     ],
-    cta: "Start Free Trial",
+    cta: "Book a Demo",
     ctaHref: "/contact",
   },
   {
     name: "Enterprise",
     monthly: null,
     annual: null,
-    description: "For large firms and multi-office operations that need full control.",
+    description: "For multi-office practices and AmLaw-ranked firms that need custom controls, dedicated support, and full API access.",
     badge: null,
     highlight: false,
     features: [
       { label: "Unlimited users", included: true },
       { label: "Portfolio health dashboard", included: true },
-      { label: "Billing review (full)", included: true },
-      { label: "Client intelligence checks", included: true },
-      { label: "Unlimited intelligence checks", included: true },
+      { label: "Billing review", included: true },
+      { label: "Unlimited client intelligence checks", included: true },
       { label: "Billstream integration", included: true },
       { label: "DOF approval workflows", included: true },
-      { label: "Custom threshold rules", included: true },
+      { label: "Custom write-down threshold rules", included: true },
       { label: "Advanced analytics", included: true },
       { label: "API access", included: true },
       { label: "Dedicated CSM", included: true },
@@ -90,15 +87,15 @@ export default function PricingPage() {
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-glow pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="primary" size="md" className="mb-6">Simple pricing</Badge>
+          <Badge variant="primary" size="md" className="mb-6">Pricing</Badge>
           <h1 className="font-display text-5xl lg:text-6xl font-bold text-text-primary mb-6">
-            Transparent pricing
+            One caught write-down
             <br />
-            <span className="gradient-text">that scales with you</span>
+            <span className="gradient-text">pays for the year.</span>
           </h1>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto mb-8">
-            Start small and grow. Every plan includes a 14-day free trial and
-            onboarding support.
+            Firms on Beacon recover an average of 18% in write-downs. Every
+            plan includes a 14-day free trial and full onboarding support.
           </p>
 
           {/* Toggle */}
@@ -127,6 +124,23 @@ export default function PricingPage() {
               </span>
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* Social proof */}
+      <section className="pb-10">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <figure className="rounded-2xl border border-border-subtle bg-bg-card px-8 py-6 text-center">
+            <blockquote className="text-text-secondary text-base leading-relaxed mb-4">
+              &ldquo;The write-down threshold alerts caught three significant
+              overbillings in our first month. It&apos;s paid for itself many
+              times over.&rdquo;
+            </blockquote>
+            <figcaption className="text-sm">
+              <span className="font-semibold text-text-primary">Michael Torres</span>
+              <span className="text-text-muted">&nbsp;&mdash;&nbsp;Managing Partner, Torres &amp; Associates</span>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
